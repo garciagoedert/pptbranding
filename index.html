@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação Comercial - Agência South Sea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Paleta de Cores Personalizada */
+        :root {
+            --color-navy: #0A2463;      /* Azul Marinho para Destaque */
+            --color-charcoal: #2d3748;  /* Chumbo para Texto Principal */
+            --color-light-bg: #f8fafc;  /* Fundo Claro (Quase Branco) */
+            --color-white: #ffffff;
+            --color-shadow: rgba(45, 55, 72, 0.1);
+            --color-border: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background-color: var(--color-light-bg);
+            color: var(--color-charcoal);
+        }
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+        /* Animação de Fade-in */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+        h1, h2, h3, h4, p {
+             font-family: 'Ubuntu', sans-serif;
+        }
+        h2 { font-weight: 700; }
+        h3 { font-weight: 700; }
+
+        .navigation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        .nav-btn {
+            background-color: rgba(10, 36, 99, 0.25);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .nav-btn:hover {
+            background-color: rgba(10, 36, 99, 0.7);
+        }
+        .fullscreen-btn {
+             position: fixed;
+             bottom: 20px;
+             left: 20px;
+             z-index: 100;
+        }
+        .bg-sea-calm {
+            background-image: url('https://images.unsplash.com/photo-1559825481-12a05cc00344?q=80&w=465&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-attachment: fixed;
+             background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+        }
+        .bg-light {
+             background-color: var(--color-light-bg);
+        }
+        .bg-white {
+            background-color: var(--color-white);
+        }
+        .bg-white-card {
+            background-color: var(--color-white);
+            box-shadow: 0 4px 6px -1px var(--color-shadow), 0 2px 4px -1px var(--color-shadow);
+            border: 1px solid var(--color-border);
+        }
+        .icon-check {
+            color: var(--color-navy);
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+        .text-navy { color: var(--color-navy); }
+        .bg-navy { background-color: var(--color-navy); }
+        .text-charcoal { color: var(--color-charcoal); }
+
+        /* Estilos do Modal/Lightbox */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 2rem;
+            cursor: pointer;
+        }
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            display: block;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <div class="scroll-container">
+
+        <!-- Slide 1: Capa -->
+        <section id="slide1" class="slide bg-sea-calm text-white text-center">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="z-10 slide-content fade-in-section">
+                <h1 class="text-6xl md:text-8xl mb-4 font-bold">South Sea & <br> [Nome do Cliente]</h1>
+                <p class="text-2xl md:text-3xl font-light">Construindo Marcas que Navegam para o Sucesso.</p>
+            </div>
+        </section>
+
+        <!-- Slide 2: Quem Somos -->
+        <section id="slide2" class="slide bg-light">
+            <div class="slide-content grid md:grid-cols-2 gap-16 items-center fade-in-section">
+                <div class="text-center md:text-left">
+                    <h2 class="text-5xl mb-6 text-charcoal">Nascida da Paixão, Guiada por Resultados.</h2>
+                    <p class="text-lg leading-relaxed">A South Sea nasceu da visão e da amizade de três especialistas apaixonados por transformar negócios. Não somos apenas mais uma agência; somos parceiros estratégicos na jornada de construção de uma marca forte e memorável. Nossa missão é combinar criatividade e estratégia para entregar resultados que impulsionam o crescimento real do seu negócio.</p>
+                </div>
+                <div class="flex justify-center items-center gap-8">
+                    <div class="text-center p-6 bg-white-card rounded-lg">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-navy" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639l4.43-8.996a1.012 1.012 0 011.896 0l4.43 8.996a1.012 1.012 0 010 .639l-4.43 8.996a1.012 1.012 0 01-1.896 0l-4.43-8.996z" /><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 12.322a1.012 1.012 0 010-.639l4.43-8.996a1.012 1.012 0 011.896 0l4.43 8.996a1.012 1.012 0 010 .639l-4.43 8.996a1.012 1.012 0 01-1.896 0l-4.43-8.996z" /></svg>
+                        <h3 class="text-xl">Visão</h3>
+                    </div>
+                     <div class="text-center p-6 bg-white-card rounded-lg">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-navy" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.5-10.5h-7a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-10.5a2.25 2.25 0 00-2.25-2.25z" /></svg>
+                        <h3 class="text-xl">Estratégia</h3>
+                    </div>
+                     <div class="text-center p-6 bg-white-card rounded-lg">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-navy" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-3.75-.625m3.75.625V18" /></svg>
+                        <h3 class="text-xl">Resultados</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Números -->
+        <section id="slide3" class="slide bg-white">
+             <div class="slide-content text-center fade-in-section">
+                 <h2 class="text-5xl mb-4 text-charcoal">Confiança Traduzida em Resultados.</h2>
+                 <p class="text-lg max-w-3xl mx-auto mb-16">Em nossa jornada, tivemos o privilégio de guiar dezenas de marcas por águas competitivas, sempre com foco em um destino: o sucesso.</p>
+                 <div class="grid md:grid-cols-3 gap-8">
+                     <div class="bg-light p-8 rounded-lg">
+                         <p class="text-7xl font-bold text-navy">100+</p>
+                         <p class="text-2xl mt-2">Projetos Entregues</p>
+                     </div>
+                     <div class="bg-light p-8 rounded-lg">
+                         <p class="text-7xl font-bold text-navy">50+</p>
+                         <p class="text-2xl mt-2">Clientes Satisfeitos</p>
+                     </div>
+                     <div class="bg-light p-8 rounded-lg">
+                         <p class="text-7xl font-bold text-navy">5+</p>
+                         <p class="text-2xl mt-2">Anos de Experiência</p>
+                     </div>
+                 </div>
+             </div>
+        </section>
+        
+        <!-- Slide 4: O Poder de uma Marca Forte -->
+        <section id="slide4" class="slide bg-light">
+            <div class="slide-content text-center fade-in-section">
+                <h2 class="text-5xl mb-6 text-charcoal">Por que investir em Branding?</h2>
+                <p class="text-xl leading-relaxed max-w-4xl mx-auto mb-12">Uma marca não é apenas um logo. É a promessa que você faz ao seu cliente. É o que o diferencia em um mar de concorrentes. Uma marca forte gera conexão, fideliza clientes e agrega valor percebido ao seu negócio.</p>
+                <div class="w-full max-w-2xl mx-auto">
+                    <div class="bg-white-card rounded-lg p-8">
+                        <div class="text-center pb-4 border-b-2 border-dashed border-gray-300">
+                             <p class="text-2xl font-bold text-navy">LOGO</p>
+                        </div>
+                        <div class="pt-6 text-left text-charcoal grid grid-cols-2 gap-4">
+                             <p class="text-lg font-semibold">ESTRATÉGIA</p>
+                             <p class="text-lg font-semibold">CONFIANÇA</p>
+                             <p class="text-lg font-semibold">PERCEPÇÃO</p>
+                             <p class="text-lg font-semibold">EMOÇÃO</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-2 text-sm text-gray-500">Metáfora do Iceberg de uma Marca</div>
+                </div>
+            </div>
+        </section>
+ <!-- Slide 8: Diagnóstico -->
+        <section id="slide8" class="slide bg-white">
+            <div class="slide-content text-center fade-in-section">
+                 <h2 class="text-5xl mb-6">Diagnóstico Inicial: <span class="text-navy">[Nome do Cliente]</span></h2>
+                 <p class="text-lg max-w-4xl mx-auto mb-8">Antes desta conversa, fizemos uma imersão inicial no universo da **[Nome do Cliente]**. Esta é a nossa primeira análise, um ponto de partida para a estratégia que podemos construir juntos.</p>
+                 <div class="bg-light p-8 rounded-lg max-w-3xl mx-auto">
+                     <h3 class="text-2xl mb-4">Recomendação Estratégica</h3>
+                     <p>Com base em nossa análise, acreditamos que o serviço de <strong class="text-navy">[Branding/Rebranding]</strong> é o mais indicado para o momento atual da marca, pois permitirá <strong class="text-navy">[Mencionar o principal benefício]</strong>.</p>
+                 </div>
+            </div>
+        </section>
+        
+        <!-- Slide 9: Análise de Posicionamento -->
+        <section id="slide9" class="slide bg-light">
+            <div class="slide-content fade-in-section">
+                <h2 class="text-5xl mb-12 text-center">Onde a [Nome do Cliente] está Hoje?</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white-card p-8 rounded-lg">
+                        <h3 class="text-3xl mb-4 text-charcoal">Pontos Fortes</h3>
+                        <ul class="list-disc list-inside ml-5"><li class="mb-2">Qualidade do produto/serviço reconhecida.</li><li class="mb-2">Localização estratégica.</li><li class="mb-2">Base de clientes inicial leal.</li></ul>
+                    </div>
+                    <div class="bg-white-card p-8 rounded-lg">
+                        <h3 class="text-3xl mb-4 text-navy">Oportunidades</h3>
+                        <ul class="list-disc list-inside ml-5"><li class="mb-2">Comunicação visual inconsistente.</li><li class="mb-2">Falta de uma narrativa de marca clara.</li><li class="mb-2">Presença digital com potencial inexplorado.</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slides 10: Análise Visual (MODIFICADO) -->
+        <section id="slide10" class="slide bg-white">
+            <div class="slide-content fade-in-section">
+                <h2 class="text-5xl mb-12 text-center">Análise dos Pontos de Contato</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-light p-6 rounded-lg">
+                        <h3 class="text-2xl mb-4">Identidade Visual e Comunicação</h3>
+                        <p class="mb-4">Observamos que o logo atual apresenta desafios de legibilidade. A paleta de cores e o tom de voz variam, dificultando a criação de uma memória de marca sólida.</p>
+                        <img src="https://images.unsplash.com/photo-1743756618181-99a77edf8eab?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Exemplo da comunicação visual atual do cliente" class="w-full h-auto rounded-lg cursor-pointer lightbox-trigger">
+                    </div>
+                     <div class="bg-light p-6 rounded-lg">
+                        <h3 class="text-2xl mb-4">Presença Digital e Física</h3>
+                        <p class="mb-4">O conteúdo digital é relevante, mas a estética pode ser mais coesa. O espaço físico tem potencial para se tornar um outdoor poderoso da sua marca.</p>
+                        <img src="https://images.unsplash.com/photo-1743756618181-99a77edf8eab?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Exemplo da presença digital ou física do cliente" class="w-full h-auto rounded-lg cursor-pointer lightbox-trigger">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Slide 5: Nossas Soluções -->
+         <section id="slide5" class="slide bg-white">
+             <div class="slide-content text-center fade-in-section">
+                 <h2 class="text-5xl mb-12 text-charcoal">A Rota Certa para Cada Destino</h2>
+                 <div class="grid md:grid-cols-3 gap-8">
+                     <div class="bg-light p-8 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                         <h3 class="text-3xl mb-4 text-charcoal">Identidade Visual</h3>
+                         <p>A expressão visual da sua essência. Criamos a face da sua marca de forma profissional e coesa.</p>
+                     </div>
+                     <div class="bg-navy text-white p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                         <h3 class="text-3xl mb-4">Branding Completo</h3>
+                         <p>A construção de uma marca do zero, com propósito, direção e uma plataforma completa para o crescimento.</p>
+                     </div>
+                     <div class="bg-light p-8 rounded-lg transform hover:scale-105 transition-transform duration-300">
+                         <h3 class="text-3xl mb-4 text-charcoal">Rebranding Estratégico</h3>
+                         <p>A renovação da sua marca para conquistar novos horizontes, ajustando as velas para o futuro do mercado.</p>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Slide 6: Entregas Detalhadas -->
+        <section id="slide6" class="slide bg-light">
+            <div class="slide-content fade-in-section">
+                <h2 class="text-5xl mb-12 text-center">Nossas Soluções em Detalhe</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white-card p-6 rounded-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl mb-4 text-center">Rebranding Estratégico</h3>
+                        <div class="mb-6 space-y-2 text-center text-sm"><p>Marca Renovada, Conquista de Novos Mercados e Alinhamento com Objetivos.</p></div>
+                        <div class="border-t pt-4 mt-auto"><h4 class="font-bold mb-3 text-center text-navy">Principais Entregas:</h4><ul class="text-sm space-y-1"><li class="flex"><span class="icon-check">✓</span><span>Identidade Visual Renovada</span></li><li class="flex"><span class="icon-check">✓</span><span>Manual de Marca Atualizado</span></li><li class="flex"><span class="icon-check">✓</span><span>Estratégia de Reposicionamento</span></li><li class="flex"><span class="icon-check">✓</span><span>Análise de Mercado</span></li><li class="flex"><span class="icon-check">✓</span><span>Design de Novos Materiais</span></li></ul></div>
+                    </div>
+                    <div class="bg-white-card p-6 rounded-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl mb-4 text-center">Branding Completo</h3>
+                        <div class="mb-6 space-y-2 text-center text-sm"><p>Destaque no Mercado, Vínculos com o Público, Autoridade e Confiança.</p></div>
+                        <div class="border-t pt-4 mt-auto"><h4 class="font-bold mb-3 text-center text-navy">Principais Entregas:</h4><ul class="text-sm space-y-1"><li class="flex"><span class="icon-check">✓</span><span>Relatório de Diagnóstico</span></li><li class="flex"><span class="icon-check">✓</span><span>Identidade Visual Completa</span></li><li class="flex"><span class="icon-check">✓</span><span>Manual de Marca</span></li><li class="flex"><span class="icon-check">✓</span><span>Proposta de Valor</span></li><li class="flex"><span class="icon-check">✓</span><span>Tom de Voz e Comunicação</span></li></ul></div>
+                    </div>
+                    <div class="bg-white-card p-6 rounded-lg flex flex-col transform hover:-translate-y-2 transition-transform duration-300">
+                        <h3 class="text-2xl mb-4 text-center">Identidade Visual</h3>
+                        <div class="mb-6 space-y-2 text-center text-sm"><p>Primeira Impressão Forte, Coerência Visual e Marca Reconhecível.</p></div>
+                        <div class="border-t pt-4 mt-auto"><h4 class="font-bold mb-3 text-center text-navy">Principais Entregas:</h4><ul class="text-sm space-y-1"><li class="flex"><span class="icon-check">✓</span><span>Relatório de Diagnóstico</span></li><li class="flex"><span class="icon-check">✓</span><span>Identidade Visual Completa</span></li><li class="flex"><span class="icon-check">✓</span><span>Manual de Marca Simplificado</span></li><li class="flex"><span class="icon-check">✓</span><span>Design de Materiais</span></li><li class="flex"><span class="icon-check">✓</span><span>Templates para Redes Sociais</span></li></ul></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 12: Processo -->
+        <section id="slide12" class="slide bg-light">
+            <div class="slide-content text-center fade-in-section">
+                <h2 class="text-5xl mb-12">Nossa Jornada de Trabalho</h2>
+                <div class="relative">
+                    <div class="hidden md:block border-l-4 border-dashed border-navy absolute h-full top-0 left-1/2 -translate-x-1/2"></div>
+                    <div class="mb-8 flex md:justify-end md:w-1/2 md:pr-8"><div class="w-full md:w-8/12 bg-white-card p-6 rounded-lg"><h3 class="text-xl mb-2 text-navy">1. Kick-off</h3><p>Formalização com Contrato, Pagamento e Questionário.</p></div></div>
+                    <div class="mb-8 flex md:justify-start md:w-1/2 md:pl-8 md:ml-auto"><div class="w-full md:w-8/12 bg-white-card p-6 rounded-lg"><h3 class="text-xl mb-2 text-navy">2. Imersão e Estratégia</h3><p>Mergulhamos no seu negócio para traçar a rota criativa.</p></div></div>
+                    <div class="mb-8 flex md:justify-end md:w-1/2 md:pr-8"><div class="w-full md:w-8/12 bg-white-card p-6 rounded-lg"><h3 class="text-xl mb-2 text-navy">3. Alinhamento Criativo</h3><p>Apresentamos o caminho estratégico para sua validação.</p></div></div>
+                    <div class="mb-8 flex md:justify-start md:w-1/2 md:pl-8 md:ml-auto"><div class="w-full md:w-8/12 bg-white-card p-6 rounded-lg"><h3 class="text-xl mb-2 text-navy">4. Desenvolvimento</h3><p>Nossa equipe executa e refina o projeto.</p></div></div>
+                    <div class="mb-8 flex md:justify-end md:w-1/2 md:pr-8"><div class="w-full md:w-8/12 bg-white-card p-6 rounded-lg"><h3 class="text-xl mb-2 text-navy">5. Entrega Final</h3><p>Sua nova marca, pronta para conquistar o mercado!</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 13: Investimento (MODIFICADO) -->
+        <section id="slide13" class="slide bg-white">
+            <div class="slide-content text-center fade-in-section">
+                <h2 class="text-5xl mb-12 text-charcoal">Investimento Estratégico</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
+                    <div class="bg-light rounded-lg p-8 flex flex-col">
+                        <h3 class="text-3xl mb-4 text-charcoal">Identidade Visual</h3>
+                        <p class="text-charcoal mb-6 flex-grow">O projeto essencial para profissionalizar a sua imagem.</p>
+                        <p class="text-3xl font-bold text-navy">12x de R$ 354,39</p>
+                    </div>
+                     <div class="relative bg-navy text-white rounded-lg p-8 flex flex-col shadow-lg">
+                        <div class="absolute top-0 right-4 -mt-4 bg-white text-navy px-3 py-1 rounded-full text-sm font-bold shadow-md">Mais Popular</div>
+                        <h3 class="text-3xl mb-4">Branding ou Rebranding</h3>
+                        <p class="text-gray-200 mb-6 flex-grow">A solução completa para garantir diferenciação e crescimento.</p>
+                        <p class="text-4xl font-bold">12x de R$ 445,39</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 14: Contato -->
+        <section id="slide14" class="slide bg-sea-calm text-white text-center">
+             <div class="absolute inset-0 bg-black opacity-60"></div>
+            <div class="z-10 slide-content fade-in-section">
+                <h2 class="text-6xl mb-8 font-bold">Vamos Começar a Transformação?</h2>
+                <div class="text-2xl mb-12">
+                    <p class="mb-4">1. Com o seu "sim", iniciamos a mobilização.</p>
+                    <p class="mb-4">2. Enviaremos o link com Contrato, Questionário e Pagamento.</p>
+                    <p>3. Após as formalizações, sua marca começa a ser transformada.</p>
+                </div>
+                <hr class="my-10 border-gray-400"/>
+                <h3 class="text-4xl">South Sea</h3>
+                <div class="mt-4 text-lg">
+                    <p>contato@southsea.com.br | (48)99901-3968</p>
+                    <p>www.southsea.com.br</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal/Lightbox Estrutura -->
+    <div id="lightbox-modal" class="modal-overlay hidden">
+        <span id="modal-close-btn" class="modal-close">&times;</span>
+        <img id="lightbox-image" src="" alt="Imagem Ampliada" class="modal-content">
+    </div>
+
+    <!-- Navegação e Fullscreen -->
+    <div class="navigation">
+        <button id="prevBtn" class="nav-btn">▲</button>
+        <button id="nextBtn" class="nav-btn">▼</button>
+    </div>
+    <button id="fullscreenBtn" class="nav-btn fullscreen-btn">⛶</button>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const fadeSections = document.querySelectorAll('.fade-in-section');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            let currentSlide = 0;
+
+            // Animação de Fade-in
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeSections.forEach(section => {
+                observer.observe(section);
+            });
+
+            function showSlide(index) {
+                if (index >= 0 && index < slides.length) {
+                    slides[index].scrollIntoView({ behavior: 'smooth' });
+                    currentSlide = index;
+                }
+            }
+            
+            function updateCurrentSlideOnScroll() {
+                let maxVisible = 0;
+                let newCurrentSlide = 0;
+                
+                slides.forEach((slide, index) => {
+                    const rect = slide.getBoundingClientRect();
+                    const visibleHeight = Math.max(0, Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0));
+                    
+                    if(visibleHeight > maxVisible) {
+                        maxVisible = visibleHeight;
+                        newCurrentSlide = index;
+                    }
+                });
+                currentSlide = newCurrentSlide;
+            }
+
+            nextBtn.addEventListener('click', () => { showSlide(currentSlide + 1); });
+            prevBtn.addEventListener('click', () => { showSlide(currentSlide - 1); });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === 'ArrowRight') { e.preventDefault(); showSlide(currentSlide + 1); } 
+                else if (e.key === 'ArrowUp' || e.key === 'PageUp' || e.key === 'ArrowLeft') { e.preventDefault(); showSlide(currentSlide - 1); }
+                else if (e.key === 'Escape' && !modal.classList.contains('hidden')) { closeModal(); }
+            });
+
+            window.addEventListener('scroll', updateCurrentSlideOnScroll, { passive: true });
+
+            fullscreenBtn.addEventListener('click', () => {
+                try {
+                    const elem = document.documentElement;
+                    if (!document.fullscreenElement) {
+                        if (elem.requestFullscreen) { elem.requestFullscreen(); } 
+                        else if (elem.webkitRequestFullscreen) { elem.webkitRequestFullscreen(); }
+                    } else {
+                        if (document.exitFullscreen) { document.exitFullscreen(); }
+                        else if (document.webkitExitFullscreen) { document.webkitExitFullscreen(); }
+                    }
+                } catch (e) {
+                    console.error("Fullscreen API is not supported or is blocked.", e);
+                }
+            });
+
+            // Lógica do Lightbox
+            const modal = document.getElementById('lightbox-modal');
+            const modalImage = document.getElementById('lightbox-image');
+            const imageTriggers = document.querySelectorAll('.lightbox-trigger');
+            const closeModalBtn = document.getElementById('modal-close-btn');
+
+            function openModal(e) {
+                modalImage.src = e.target.src;
+                modal.classList.remove('hidden');
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+            }
+
+            imageTriggers.forEach(trigger => {
+                trigger.addEventListener('click', openModal);
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
